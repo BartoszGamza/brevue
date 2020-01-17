@@ -1,24 +1,23 @@
 <template>
-  <div>
-    <!-- DEMO TIMER -->
-    <div>
-      <div v-if="!confirmed">
-        <input type="number" v-model="time">
-        <button @click="confirmTime">Confirm</button>
-      </div>
-      <div v-if="confirmed">{{ time }}</div>
+  <div class="wrapper">
+    <div class="method-form" v-if="!accepted">
+      <p>How much coffe do you want?</p>
+      <input id="numberOfcups" type="number" v-model="form.numberOfCups">
+      <label for="numberOfcups">cups</label>
+      <input id="cupSize" type="number" v-model="form.cupSize">
+      <label for="cup">ml each</label>
+      <p>Which is {{ waterAmount }}ml </p>
+      <button @click="accepted = true">Let's go!</button>
     </div>
-
-    <!-- STEPS POC -->
-    <div>
-      <div v-for="(step, key) in v60" :key="key" :class="{'step--inactive': !step.current}">
-        <p>{{ step.text }}</p>
-        <button @click="stepCompleted(step, key)">Done</button>
-        <div v-if="step.completed">
-          <p>now wait:</p>
-          <div>{{ time }}</div>
-        </div>
+    <div class="steps" v-if="accepted && !recipeEnded">
+      <p>{{ currentStep.text }}</p>
+      <button v-if="!waiting" @click="stepCompleted(currentStep)">Done</button>
+      <div v-else>
+        <p>now wait: {{ time }}</p>
       </div>
+    </div>
+    <div v-if="recipeEnded">
+      Congratulations, let the remaining water go through and enjoy your coffee!
     </div>
   </div>
 </template>
@@ -28,30 +27,48 @@ export default {
   data () {
     return {
       time: null,
-      confirmed: false,
-      v60: [
+      waiting: false,
+      accepted: false,
+      form: {
+        cupSize: 150,
+        numberOfCups: 2,
+      },
+      currentStepKey: 0
+    }
+  },
+  computed: {
+    waterAmount () {
+      return this.form.numberOfCups * this.form.cupSize
+    },
+    coffeAmount () {
+      return this.waterAmount * 6 / 100
+    },
+    recipe () {
+      const blooming = this.coffeAmount * 2
+      return [
         {
-          current: true,
-          text: 'Pour in 50g of water.',
-          completed: false,
-          wait: 20,
-          next: 'Pour in 70g of water'
+          text: `Grind ${this.coffeAmount}g (${this.coffeAmount / 6} spoons) of coffee,
+          boil ${this.waterAmount}ml of water`,
         },
         {
-          current: false,
+          text: `Pour in ${blooming}g of water.`,
+          wait: 30,
+        },
+        {
           text: 'Pour in 70g of water',
           wait: 20,
-          completed: false,
-          next: 'Pour in 80g of water'
         }
       ]
+    },
+    currentStep () {
+      return this.recipe[this.currentStepKey]
+    },
+    recipeEnded () {
+      // intentionally the steps can go 1 more longer than arrays length which marks the finish
+      return (this.currentStepKey === (this.recipe.length))
     }
   },
   methods: {
-    confirmTime () {
-      this.confirmed = true
-      this.countdown()
-    },
     setTimer (seconds) {
       this.time = seconds
       this.countdown()
@@ -63,26 +80,42 @@ export default {
           this.countdown()
         }, 1000)
       } else {
-        this.confirmed = false
+        this.waiting = false
         this.nextStep()
       }
     },
-    stepCompleted (step, key) {
-      this.v60[key].completed = true
-      this.time = step.wait
-      this.countdown()
+    stepCompleted (step) {
+      if (step.wait) {
+        this.time = step.wait
+        this.countdown()
+        this.waiting = true
+      } else {
+        this.nextStep()
+      }
     },
     nextStep () {
-      const currentStep = this.v60.findIndex(step => step.current)
-      this.v60[currentStep].current = false
-      this.v60[currentStep + 1].current = true
+      if (!this.recipeEnded) {
+        this.currentStepKey++
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.step--inactive {
-  opacity: 0.5;
+.wrapper {
+  display: flex;
+  justify-content: center
 }
+
+.method-form {
+  max-width: 300px;
+  display: flex;
+  flex-flow: column;
+}
+
+.step--inactive {
+  display: none;
+}
+
 </style>
