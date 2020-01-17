@@ -11,9 +11,11 @@
     </div>
     <div class="steps" v-if="accepted && !recipeEnded">
       <p>{{ currentStep.text }}</p>
-      <button v-if="!waiting" @click="stepCompleted(currentStep)">Done</button>
+      <button v-if="!waiting" @click="stepCompleted(currentStep)">
+        {{ currentStep.buttonText ? currentStep.buttonText : 'Done' }}
+      </button>
       <div v-else>
-        <p>now wait: {{ time }}</p>
+        <p> {{ currentStep.timerText ? currentStep.timerText : 'wait' }} {{ time }}</p>
       </div>
     </div>
     <div v-if="recipeEnded">
@@ -40,23 +42,45 @@ export default {
     waterAmount () {
       return this.form.numberOfCups * this.form.cupSize
     },
-    coffeAmount () {
+    coffeeAmount () {
       return this.waterAmount * 6 / 100
     },
     recipe () {
-      const blooming = this.coffeAmount * 2
+      const bloomingPour = parseInt(this.coffeeAmount * 2)
+      const secondPour = (0.6 * this.waterAmount) - bloomingPour
+      const lastPour = this.waterAmount - secondPour - bloomingPour
       return [
         {
-          text: `Grind ${this.coffeAmount}g (${this.coffeAmount / 6} spoons) of coffee,
-          boil ${this.waterAmount}ml of water`,
+          text: `Grind ${this.coffeeAmount}g (${this.coffeeAmount / 6} spoons) of coffee,
+          boil ${this.waterAmount}ml of water (plus some for filter rinsing) the hotter, the better`,
         },
         {
-          text: `Pour in ${blooming}g of water.`,
+          text: 'Rinse the filter.'
+        },
+        {
+          text: 'Add coffee, remember to drill a little hole in the middle.'
+        },
+        {
+          text: `Pour in ${bloomingPour}g of water.`,
+          wait: 35,
+        },
+        {
+          text: 'Swirl the coffe until evenly mixed'
+        },
+        {
+          text: `Pour in ${secondPour}g of water.`,
+          buttonText: 'Start pouring',
+          timerText: 'finish pouring by',
           wait: 30,
         },
         {
-          text: 'Pour in 70g of water',
-          wait: 20,
+          text: `Pour in ${lastPour}g (remaining) of water. When pouring is done, mix the coffee surface gently with a spoon.`,
+          buttonText: 'Start pouring',
+          timerText: 'finish pouring by',
+          wait: 30,
+        },
+        {
+          text: 'Swirl gently one more time'
         }
       ]
     },
