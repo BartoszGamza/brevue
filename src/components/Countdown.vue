@@ -153,23 +153,23 @@ export default {
   display: none
 
 .input-number
+  @include shadow-concave
   height: 35px
-  box-shadow: inset -1px -1px 3px rgba(255,255,255, 0.5),inset 1px 1px 3px rgba(0,0,0,0.16)
-  background-color: #EBEBEB
+  background-color: $color-background-contrast
   border: none
   outline: none
   padding: 0 10px
   -webkit-appearance: none
 
 .button-continue
+  @include shadow-convex
   height: 54px
   width: 164px
   font-family: 'Gilroy-Light'
   text-align: center
   outline: none
-  box-shadow: -6px -6px 6px rgba(255, 255, 255, 0.5), 6px 6px 6px rgba(0, 0, 0, 0.16)
   border: none
   border-radius: 10px
-  background-color: #EFEEEE
+  background-color: $color-background
 
 </style>
