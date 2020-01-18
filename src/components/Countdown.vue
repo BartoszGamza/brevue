@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
     <div class="method-form" v-if="!accepted">
-      <p>How much coffe do you want?</p>
-      <input id="numberOfcups" type="number" v-model="form.numberOfCups">
+      <p>How much coffee do you want?</p>
+      <input class="input-number" id="numberOfcups" type="number" v-model="form.numberOfCups">
       <label for="numberOfcups">cups</label>
-      <input id="cupSize" type="number" v-model="form.cupSize">
+      <input class="input-number" id="cupSize" type="number" v-model="form.cupSize">
       <label for="cup">ml each</label>
       <p>Which is {{ waterAmount }}ml </p>
-      <button @click="accepted = true">Let's go!</button>
+      <button class="button-continue" @click="accepted = true">Let's go!</button>
     </div>
     <div class="steps" v-if="accepted && !recipeEnded">
       <p>{{ currentStep.text }}</p>
-      <button v-if="!waiting" @click="stepCompleted(currentStep)">
+      <button class="button-continue" v-if="!waiting" @click="stepCompleted(currentStep)">
         {{ currentStep.buttonText ? currentStep.buttonText : 'Done' }}
       </button>
       <div v-else>
@@ -139,16 +139,36 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-wrapper
+.wrapper
   display: flex
   justify-content: center
+  font-family: 'Gilroy-ExtraBold'
 
-method-form
+.method-form
   max-width: 300px
   display: flex
   flex-flow: column
 
-step--inactive
+.step--inactive
   display: none
+
+.input-number
+  height: 35px
+  box-shadow: inset -1px -1px 3px rgba(255,255,255, 0.5),inset 1px 1px 3px rgba(0,0,0,0.16)
+  background-color: #EBEBEB
+  border: none
+  outline: none
+  padding: 0 10px
+
+.button-continue
+  height: 54px
+  width: 164px
+  font-family: 'Gilroy-Light'
+  text-align: center
+  outline: none
+  box-shadow: -6px -6px 6px rgba(255, 255, 255, 0.5), 6px 6px 6px rgba(0, 0, 0, 0.16)
+  border: none
+  border-radius: 10px
+  background-color: #EFEEEE
 
 </style>
