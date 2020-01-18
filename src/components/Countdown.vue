@@ -138,22 +138,17 @@ export default {
 }
 </script>
 
-<style scoped>
-.wrapper {
-  display: flex;
+<style lang="sass" scoped>
+wrapper
+  display: flex
   justify-content: center
-}
 
-.method-form {
-  max-width: 300px;
-  display: flex;
-  flex-flow: column;
-}
+method-form
+  max-width: 300px
+  display: flex
+  flex-flow: column
 
-.step--inactive {
-  display: none;
-}
-
-
+step--inactive
+  display: none
 
 </style>

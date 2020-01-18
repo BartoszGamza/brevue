@@ -30,14 +30,19 @@ export default {
   },
   computed: {
     normalizedRadius () {
-      return this.radius - this.stroke * 2;
+      return this.radius - this.stroke * 2
     },
     circumference () {
-      return this.normalizedRadius * 2 * Math.PI;
+      return this.normalizedRadius * 2 * Math.PI
     },
     strokeDashoffset () {
-      return this.circumference - this.progress / 100 * this.circumference;
+      return -(this.circumference - this.progress / 100 * this.circumference)
     }
   }
 }
 </script>
+
+<style lang="sass" scoped>
+svg
+  transform: rotate(-90deg)
+</style>
