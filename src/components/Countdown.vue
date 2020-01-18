@@ -16,6 +16,7 @@
       </button>
       <div v-else>
         <p> {{ currentStep.timerText ? currentStep.timerText : 'wait' }} {{ time }}</p>
+        <countdown-circle :progress="countdownProgress"/>
       </div>
     </div>
     <div v-if="recipeEnded">
@@ -25,7 +26,12 @@
 </template>
 
 <script>
+import CountdownCircle from '@/components/CountdownCircle'
+
 export default {
+  components: {
+    CountdownCircle
+  },
   data () {
     return {
       time: null,
@@ -90,6 +96,12 @@ export default {
     recipeEnded () {
       // intentionally the steps can go 1 more longer than arrays length which marks the finish
       return (this.currentStepKey === (this.recipe.length))
+    },
+    countdownProgress () {
+      if (this.waiting && this.currentStep.wait) {
+        return (this.time * 100) / this.currentStep.wait
+      }
+      return 0
     }
   },
   methods: {
@@ -141,5 +153,7 @@ export default {
 .step--inactive {
   display: none;
 }
+
+
 
 </style>
