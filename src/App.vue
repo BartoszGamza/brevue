@@ -21,11 +21,11 @@ body
 
 @font-face
   font-family: 'Gilroy-ExtraBold'
-  src: url(/assets/fonts/GilroyExtraBold.woff)
+  src: url('~@/assets/fonts/GilroyExtraBold.woff')
 
 @font-face
   font-family: 'Gilroy-Light'
-  src: url(/assets/fonts/GilroyLight.woff)
+  src: url('~@/assets/fonts/GilroyLight.woff')
 
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif

@@ -159,6 +159,7 @@ export default {
   border: none
   outline: none
   padding: 0 10px
+  -webkit-appearance: none
 
 .button-continue
   height: 54px
