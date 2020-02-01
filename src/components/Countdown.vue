@@ -2,16 +2,16 @@
   <div class="wrapper">
     <div class="method-form" v-if="!accepted">
       <p>How much coffee do you want?</p>
-      <input class="input-number" id="numberOfcups" type="number" v-model="form.numberOfCups">
+      <input class="input-number neumorphic-input" id="numberOfcups" type="number" v-model="form.numberOfCups">
       <label for="numberOfcups">cups</label>
-      <input class="input-number" id="cupSize" type="number" v-model="form.cupSize">
+      <input class="input-number neumorphic-input" id="cupSize" type="number" v-model="form.cupSize">
       <label for="cup">ml each</label>
       <p>Which is {{ waterAmount }}ml </p>
-      <button class="button-continue" @click="accepted = true">Let's go!</button>
+      <button class="button-continue neumorphic-card" @click="accepted = true">Let's go!</button>
     </div>
     <div class="steps" v-if="accepted && !recipeEnded">
       <p>{{ currentStep.text }}</p>
-      <button class="button-continue" v-if="!waiting" @click="stepCompleted(currentStep)">
+      <button class="button-continue neumorphic-card" v-if="!waiting" @click="stepCompleted(currentStep)">
         {{ currentStep.buttonText ? currentStep.buttonText : 'Done' }}
       </button>
       <div v-else>
@@ -153,7 +153,6 @@ export default {
   display: none
 
 .input-number
-  @include shadow-concave
   height: 35px
   background-color: $color-background-contrast
   border: none
@@ -162,7 +161,6 @@ export default {
   -webkit-appearance: none
 
 .button-continue
-  @include shadow-convex
   height: 54px
   width: 164px
   font-family: 'Gilroy-Light'
@@ -171,5 +169,4 @@ export default {
   outline: none
   border: none
   border-radius: 10px
-  background-color: $color-background
 </style>

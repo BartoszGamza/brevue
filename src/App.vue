@@ -1,25 +1,21 @@
 <template>
   <div id="app">
-    <countdown />
-    <methods-menu />
+    <!-- <countdown />
+    <methods-menu /> -->
+    <router-view />
   </div>
 </template>
 
 <script>
-import MethodsMenu from '@/components/MethodsMenu'
-import Countdown from './components/Countdown.vue'
+// import MethodsMenu from '@/components/MethodsMenu'
+// import Countdown from './components/Countdown.vue'
 
 export default {
   name: 'app',
-  components: {
-    Countdown,
-    MethodsMenu
-  }
 }
 </script>
 
 <style lang="sass">
-
 body
   margin: 0
 
