@@ -8,7 +8,8 @@ export default class V60 {
     this.boiledWater = () => this.waterAmount + 100
   }
 
-  static icon = '@/assets/icons/v60.svg'
+  static name = 'V60'
+  static icon = require('@/assets/icons/v60.svg')
 
   get ingredients () {
     return [
@@ -38,14 +39,14 @@ export default class V60 {
       },
       {
         text: `Pour until you reach ${secondPour}g in total.`,
-        buttonText: 'Start pouring',
         timerText: 'Finish pouring by',
+        timerAutostart: true,
         wait: 30,
       },
       {
         text: `Pour untill you reach reach ${this.waterAmount}g in total.`,
-        buttonText: 'Start pouring',
         timerText: 'Finish pouring by',
+        timerAutostart: true,
         wait: 30,
       }
     ]

@@ -1,17 +1,12 @@
 <template>
   <div id="app">
-    <!-- <countdown />
-    <methods-menu /> -->
     <router-view />
   </div>
 </template>
 
 <script>
-// import MethodsMenu from '@/components/MethodsMenu'
-// import Countdown from './components/Countdown.vue'
-
 export default {
-  name: 'app',
+  name: 'app'
 }
 </script>
 
@@ -24,8 +19,10 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   margin: 0
-  text-align: center
   color: $color-main
   background-color: $color-background
   height: 100vh
+  padding-top: 30px
+  display: flex
+  justify-content: center
 </style>
