@@ -1,0 +1,20 @@
+<svg id="v60_" data-name="v60 " xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107">
+  <rect id="Rectangle_15" data-name="Rectangle 15" width="107" height="107" fill="rgba(255,255,255,0)"/>
+  <g id="V60_icon" data-name="V60 icon" transform="translate(9.527 20.104)">
+    <line id="Line_1" data-name="Line 1" x2="34.057" y2="54.279" transform="translate(0.915 11.116)" fill="none" stroke="#a0702d" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_4" data-name="Line 4" x2="81.369" transform="translate(1.017 11.188)" fill="none" stroke="#a0702d" stroke-linecap="round" stroke-width="2"/>
+    <g id="Rectangle_12" data-name="Rectangle 12" transform="translate(8.473 64.896)" fill="none" stroke="#a0702d" stroke-width="2">
+      <rect width="67" height="6" rx="3" stroke="none"/>
+      <rect x="1" y="1" width="65" height="4" rx="2" fill="none"/>
+    </g>
+    <g id="Union_3" data-name="Union 3" transform="translate(0.473 -0.104)" fill="none" stroke-linecap="square">
+      <path d="M78.569,12H5.069v-.5L.509,5.2C.174,4.973,0,4.739,0,4.5,0,2.015,18.8,0,42,0S84,2.015,84,4.5c0,.239-.174.473-.509.7l-4.561,6.3V12Z" stroke="none"/>
+      <path d="M 77.54815673828125 10 L 81.19384002685547 4.96522331237793 C 79.70018768310547 4.49347448348999 76.43787384033203 3.760935306549072 69.53427124023438 3.110562562942505 C 61.93239974975586 2.394399881362915 52.15376281738281 2 41.99967575073242 2 C 31.84584999084473 2 22.0673999786377 2.394399881362915 14.46562480926514 3.110562562942505 C 7.562077045440674 3.760935306549072 4.299810409545898 4.493468284606934 2.806171894073486 4.965217113494873 L 6.451855182647705 10 L 77.54815673828125 10 M 78.93090057373047 12 L 78.56919097900391 12 L 5.430812358856201 12 L 5.069112300872803 12 L 5.069112300872803 11.50051212310791 L 0.5085625052452087 5.202274799346924 C 0.1738249957561493 4.973437309265137 0 4.73886251449585 0 4.499949932098389 C 0 2.014625072479248 18.8041877746582 0 41.99967575073242 0 C 65.19581604003906 0 84 2.014625072479248 84 4.499949932098389 C 84 4.73886251449585 83.82620239257812 4.97341251373291 83.49146270751953 5.202262401580811 L 78.93090057373047 11.50051212310791 L 78.93090057373047 12 Z" stroke="none" fill="#a0702d"/>
+    </g>
+    <line id="Line_11" data-name="Line 11" x1="34.057" y2="54.279" transform="translate(48.915 11.116)" fill="none" stroke="#a0702d" stroke-linecap="round" stroke-width="2"/>
+    <g id="Handle">
+      <circle id="Ellipse_40" data-name="Ellipse 40" cx="7.5" cy="7.5" r="7.5" transform="matrix(0.07, -0.998, 0.998, 0.07, 78.502, 32.667)" stroke-dasharray="33 27" stroke="#a0702d" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="2" fill="none"/>
+      <path id="Path_2" data-name="Path 2" d="M88.242,33.024C76.026,36.5,61.987,48.476,58.754,57.065c-2.011,7.165,4.9,8.08,6.682,8.826-.105-.038,2.163,0,2.163,0" fill="none" stroke="#a0702d" stroke-linecap="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <countdown />
+    <methods-menu />
   </div>
 </template>
 
 <script>
+import MethodsMenu from '@/components/MethodsMenu'
 import Countdown from './components/Countdown.vue'
 
 export default {
   name: 'app',
   components: {
-    Countdown
+    Countdown,
+    MethodsMenu
   }
 }
 </script>

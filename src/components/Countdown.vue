@@ -142,7 +142,7 @@ export default {
 .wrapper
   display: flex
   justify-content: center
-  font-family: 'Gilroy-ExtraBold'
+  font-family: 'PT Serif'
 
 .method-form
   max-width: 300px
@@ -167,9 +167,9 @@ export default {
   width: 164px
   font-family: 'Gilroy-Light'
   text-align: center
+  text-transform: uppercase
   outline: none
   border: none
   border-radius: 10px
   background-color: $color-background
-
 </style>
