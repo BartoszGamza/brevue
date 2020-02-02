@@ -1,12 +1,12 @@
 <template>
   <div class="methods-menu">
-    <h3>Pick your brew method</h3>
+    <div class="heading">Pick your brew method</div>
     <div class="methods-wrapper">
       <div
         v-for="(method, key) in  methods"
         :key="key"
         class="neumorphic-card method"
-        @click="chooseMethod(method)"
+        @click="chooseMethod(method.name)"
       >
         <img :src="method.icon" />
         <div class="method-name" :style="{color: method.color}">
@@ -19,7 +19,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { AVAILABLE_METHODS } from '@/lib/constants'
+import { AVAILABLE_METHODS } from '@/recipes/common'
 
 export default {
   data () {
@@ -28,9 +28,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['setMethod']),
+    ...mapActions(['setDefaultMethod']),
     chooseMethod (method) {
-      this.setMethod(method)
+      this.setDefaultMethod(method)
+      this.$router.push({name: 'overview'})
     }
   }
 }
@@ -48,4 +49,5 @@ export default {
 .method-name
   text-align: center
   margin-top: 20px
+  font-size: 1.8rem
 </style>

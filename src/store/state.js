@@ -1,5 +1,5 @@
 const state = {
-  method: null
+  selectedMethodName: ''
 }
 
 export default state

@@ -152,14 +152,6 @@ export default {
 .step--inactive
   display: none
 
-.input-number
-  height: 35px
-  background-color: $color-background-contrast
-  border: none
-  outline: none
-  padding: 0 10px
-  -webkit-appearance: none
-
 .button-continue
   height: 54px
   width: 164px

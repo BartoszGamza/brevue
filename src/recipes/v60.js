@@ -1,3 +1,7 @@
+const name = 'V60'
+const icon = require('@/assets/icons/V60.svg')
+const color = '#A0702D'
+
 export default class V60 {
   constructor({
     coffeeAmount,
@@ -5,11 +9,15 @@ export default class V60 {
   }) {
     this.coffeeAmount = parseInt(coffeeAmount)
     this.waterAmount = parseInt(waterAmount)
-    this.boiledWater = () => this.waterAmount + 100
+    this.boiledWater = this.waterAmount + 100
   }
 
-  static name = 'V60'
-  static icon = require('@/assets/icons/v60.svg')
+
+  get meta () {
+    return {
+      name, icon, color
+    }
+  }
 
   get ingredients () {
     return [

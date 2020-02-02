@@ -1,3 +1,3 @@
-export function setMethod ({ commit }, method) {
+export function setDefaultMethod ({ commit }, method) {
   commit('setMethod', method)
 }

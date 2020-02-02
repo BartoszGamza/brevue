@@ -1,1 +1,1 @@
-export const method = state => state.method
+export const selectedMethodName = state => state.selectedMethodName
