@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import MethodsMenu from '@/components/MethodsMenu'
 import MethodMain from '@/components/MethodMain'
+import MethodPreparation from '@/components/MethodPreparation'
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: '/overview',
     component: MethodMain,
     name: 'overview'
+  },
+  {
+    path: '/preparation',
+    component: MethodPreparation,
+    name: 'preparation'
   }
 ]
 

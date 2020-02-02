@@ -1,5 +1,5 @@
 <template>
-  <div class="method-main">
+  <div>
 
     <div class="method-profile">
       <img
@@ -46,9 +46,11 @@
         Which is {{ totalCoffeeProduct }} ml in total.
       </div>
     </div>
+
     <div class="continue-wrapper">
       <button-continue @click="goToPreparation">Begin</button-continue>
     </div>
+
   </div>
 </template>
 
@@ -80,6 +82,7 @@ export default {
     ...mapActions(['setMethodClass']),
     goToPreparation () {
       this.setMethodClass(this.methodClass)
+      this.$router.push({ name: 'preparation' })
     }
   }
 }
@@ -105,9 +108,4 @@ export default {
 
 .method-form__subtext
   margin-top: 1rem
-
-.continue-wrapper
-  width: 100%
-  text-align: center
-  margin-top: 5rem
 </style>
