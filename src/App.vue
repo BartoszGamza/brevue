@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <div class="app-wrapper">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,9 @@ body
   color: $color-main
   background-color: $color-background
   height: 100vh
-  padding-top: 30px
   display: flex
   justify-content: center
+
+.app-wrapper
+  padding-top: 30px
 </style>

@@ -58,7 +58,8 @@ $color-yellow-cta: #AC8B08
   position: relative
   font-size: 1.4rem
   font-family: 'PT Serif', serif
-  margin: 1rem 0 1rem 2.5rem
+  margin: 1.5rem 0 1.5rem 2.5rem
+  cursor: pointer
   &:before
     position: absolute
     content: ''
@@ -70,8 +71,7 @@ $color-yellow-cta: #AC8B08
     background: linear-gradient(to bottom right,$color-background, #EBE8E8)
     box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.16)
 
-// GLOBAL CLASSES
-.continue-wrapper
-  width: 100%
-  text-align: center
-  margin-top: 5rem
+  &--done
+    text-decoration: line-through
+    &:before
+      box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(0, 0, 0, 0.16)
