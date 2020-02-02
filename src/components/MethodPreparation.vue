@@ -68,7 +68,7 @@ export default {
   margin-bottom: 5rem
 
 .subtitle-italic
-  font-size: 1.4rem
+  font-size: 1.6rem
   width: 250px
   font-family: 'PT Serif', serif
   font-style: italic
