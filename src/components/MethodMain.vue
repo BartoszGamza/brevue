@@ -42,19 +42,25 @@
           id="CupSize">
         <label for="CupSize"> ml each. </label>
       </div>
-      <div class="text">
-        Which is {{ total }} ml in total.
+      <div class="text method-form__subtext">
+        Which is {{ totalCoffeeProduct }} ml in total.
       </div>
     </div>
-
+    <div class="continue-wrapper">
+      <button-continue @click="goToPreparation">Begin</button-continue>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import { getMethodClass } from '@/recipes/common'
+import ButtonContinue from '@/components/ButtonContinue'
 
 export default {
+  components: {
+    ButtonContinue
+  },
   data () {
     return {
       cups: 2,
@@ -64,13 +70,16 @@ export default {
   computed: {
     ...mapGetters(['selectedMethodName']),
     methodClass () {
-      const method = getMethodClass(this.selectedMethodName, this.total)
-      // eslint-disable-next-line no-console
-      console.log(method)
-      return method
+      return getMethodClass(this.selectedMethodName, this.totalCoffeeProduct)
     },
-    total () {
+    totalCoffeeProduct () {
       return this.cups * this.cupSize
+    }
+  },
+  methods: {
+    ...mapActions(['setMethodClass']),
+    goToPreparation () {
+      this.setMethodClass(this.methodClass)
     }
   }
 }
@@ -93,4 +102,12 @@ export default {
 .method-name
   font-family: 'Gilroy-Light'
   font-size: 3.2rem
+
+.method-form__subtext
+  margin-top: 1rem
+
+.continue-wrapper
+  width: 100%
+  text-align: center
+  margin-top: 5rem
 </style>

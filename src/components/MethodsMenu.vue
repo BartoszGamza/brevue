@@ -28,9 +28,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['setDefaultMethod']),
+    ...mapActions(['setMethodName']),
     chooseMethod (method) {
-      this.setDefaultMethod(method)
+      this.setMethodName(method)
       this.$router.push({name: 'overview'})
     }
   }
